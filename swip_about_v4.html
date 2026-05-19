@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — SWiP UChicago</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;0,800;0,900;1,800&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --s-blue:    #5bbcf0;
+  --w-green:   #3dc85c;
+  --i-red:     #e83535;
+  --p-pink:    #d878bc;
+  --star:      #f5c830;
+  --hot-pink:  #e840a0;
+  --lavender:  #d8b8f0;
+  --lav-pale:  #f5eeff;
+  --pink-pale: #ffeef8;
+  --dark:      #1e1228;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #fdfaff;
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  background: white;
+  border-bottom: 3px solid var(--lavender);
+  padding: 0 2.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 1.6rem;
+  text-decoration: none;
+  display: flex;
+  gap: 1px;
+  align-items: center;
+}
+.nav-logo .s { color: var(--s-blue); }
+.nav-logo .w { color: var(--w-green); }
+.nav-logo .i { color: var(--i-red); }
+.nav-logo .p { color: var(--p-pink); }
+.nav-logo .star-dot {
+  color: var(--star);
+  font-size: 0.7rem;
+  margin-bottom: 8px;
+  margin-left: 1px;
+}
+
+.nav-links { display: flex; gap: 0.2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--dark);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 50px;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-links a:hover, .nav-links a.active {
+  background: var(--pink-pale);
+  color: var(--hot-pink);
+}
+
+/* HERO */
+.hero {
+  background: var(--hot-pink);
+  padding: 5rem 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticker {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 36px;
+  background: var(--star);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-inner {
+  display: inline-flex;
+  animation: ticker 18s linear infinite;
+}
+
+.ticker-inner span {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dark);
+  padding: 0 1.5rem;
+}
+
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* big SWiP display */
+.hero-wordmark {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: clamp(5rem, 16vw, 10rem);
+  line-height: 1;
+  margin-bottom: 1.25rem;
+  position: relative;
+  display: inline-block;
+}
+.hero-wordmark .s { color: white; }
+.hero-wordmark .w { color: var(--star); }
+.hero-wordmark .i { color: white; }
+.hero-wordmark .p { color: var(--lavender); }
+.hero-wordmark .star {
+  position: absolute;
+  top: 0.05em;
+  right: -0.2em;
+  font-size: 0.28em;
+  color: var(--star);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.pill-btn {
+  display: inline-block;
+  background: white;
+  color: var(--hot-pink);
+  font-size: 0.95rem;
+  font-weight: 900;
+  padding: 0.85rem 2.25rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.12);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.pill-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 rgba(0,0,0,0.12);
+}
+
+/* WAVE */
+.wave { width: 100%; display: block; margin-bottom: -2px; }
+
+/* STATS */
+.stats-row {
+  background: var(--star);
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 1.75rem 2rem;
+  flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-icon { font-size: 1.75rem; line-height: 1; margin-bottom: 0.2rem; }
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(30,18,40,0.65);
+}
+
+/* ABOUT SECTION */
+.about-section {
+  max-width: 960px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--pink-pale);
+  color: var(--hot-pink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 30px;
+  margin-bottom: 1rem;
+}
+
+.section-heading {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 2rem;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.section-body {
+  font-size: 0.975rem;
+  line-height: 1.8;
+  color: #5a3d6a;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* info box */
+.info-box {
+  background: var(--lav-pale);
+  border: 3px solid var(--lavender);
+  border-radius: 24px;
+  padding: 2rem;
+}
+
+.info-box .section-tag {
+  background: white;
+  color: #9050c0;
+}
+
+/* ACTIVITIES */
+.activities-band {
+  background: var(--s-blue);
+  padding: 4rem 2rem;
+}
+
+.band-heading {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 2.2rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 3px 0 rgba(0,0,0,0.1);
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.activity-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.08);
+  transition: transform 0.15s;
+}
+.activity-card:hover { transform: translateY(-4px); }
+.activity-emoji { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.activity-title {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 1rem;
+  color: var(--s-blue);
+  margin-bottom: 0.35rem;
+}
+.activity-desc {
+  font-size: 0.82rem;
+  color: #5a4a7a;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* WHO IS WELCOME */
+.welcome-section {
+  max-width: 960px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+}
+
+.welcome-section .section-tag { margin-bottom: 0.75rem; }
+
+.welcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.welcome-card {
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 3px solid;
+  transition: transform 0.15s;
+}
+.welcome-card:hover { transform: translateY(-4px); }
+.welcome-card:nth-child(1) { background: #eef9ff; border-color: var(--s-blue); }
+.welcome-card:nth-child(2) { background: #eefff4; border-color: var(--w-green); }
+.welcome-card:nth-child(3) { background: var(--pink-pale); border-color: var(--p-pink); }
+
+.welcome-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; }
+.welcome-title {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.welcome-card:nth-child(1) .welcome-title { color: var(--s-blue); }
+.welcome-card:nth-child(2) .welcome-title { color: var(--w-green); }
+.welcome-card:nth-child(3) .welcome-title { color: var(--p-pink); }
+.welcome-desc {
+  font-size: 0.875rem;
+  color: #5a3a6a;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+/* CTA */
+.cta-band {
+  background: var(--p-pink);
+  padding: 4.5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-band::before {
+  content: '♡';
+  position: absolute;
+  font-size: 20rem;
+  color: rgba(255,255,255,0.08);
+  top: -4rem; right: -3rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.cta-heading {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 0.75rem;
+  text-shadow: 3px 4px 0 rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.cta-sub {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  max-width: 440px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+  position: relative;
+}
+
+.cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.btn-white {
+  display: inline-block;
+  background: white;
+  color: var(--p-pink);
+  font-size: 0.95rem;
+  font-weight: 900;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.1);
+  transition: transform 0.12s;
+}
+.btn-white:hover { transform: translateY(-3px); }
+
+.btn-outline-white {
+  display: inline-block;
+  background: transparent;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 900;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  border: 3px solid rgba(255,255,255,0.7);
+  transition: background 0.15s;
+}
+.btn-outline-white:hover { background: rgba(255,255,255,0.15); }
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-wordmark {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+.footer-wordmark .s { color: var(--s-blue); }
+.footer-wordmark .w { color: var(--w-green); }
+.footer-wordmark .i { color: var(--i-red); }
+.footer-wordmark .p { color: var(--p-pink); }
+
+.footer-tagline {
+  color: var(--lavender);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: white; }
+
+@media (max-width: 700px) {
+  .nav-links { display: none; }
+  .about-section { grid-template-columns: 1fr; gap: 2rem; }
+  .activities-grid { grid-template-columns: 1fr 1fr; }
+  .welcome-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="s">S</span><span class="w">W</span><span class="i">i</span><span class="p">P</span><span class="star-dot">★</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#" class="active">About</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Mentorship</a></li>
+    <li><a href="#">Resources</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span>Women in Physics ★</span><span>UChicago ★</span><span>Community ★</span><span>Inclusion ★</span><span>Science ★</span><span>Support ★</span><span>Research ★</span><span>Events ★</span><span>Women in Physics ★</span><span>UChicago ★</span><span>Community ★</span><span>Inclusion ★</span><span>Science ★</span><span>Support ★</span><span>Research ★</span><span>Events ★</span>
+    </div>
+  </div>
+  <div class="hero-wordmark">
+    <span class="s">S</span><span class="w">W</span><span class="i">i</span><span class="p">P</span><span class="star">★</span>
+  </div>
+  <p class="hero-sub">A fun, encouraging, and supportive community for women, femmes, trans and nonbinary people interested in physics at UChicago 💖</p>
+  <a href="https://lists.uchicago.edu/" class="pill-btn" target="_blank">Join SWiP! ✨</a>
+</section>
+
+<svg class="wave" viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 25 Q100 0 200 25 Q300 50 400 25 Q500 0 600 25 Q700 50 800 25 Q900 0 1000 25 Q1100 50 1200 25 L1200 50 L0 50Z" fill="#f5c830"/>
+</svg>
+
+<div class="stats-row">
+  <div class="stat"><div class="stat-icon">💖</div><div class="stat-label">Welcoming community</div></div>
+  <div class="stat"><div class="stat-icon">🔭</div><div class="stat-label">Speaker series</div></div>
+  <div class="stat"><div class="stat-icon">🤝</div><div class="stat-label">Mentorship program</div></div>
+  <div class="stat"><div class="stat-icon">🎉</div><div class="stat-label">Social events</div></div>
+  <div class="stat"><div class="stat-icon">📚</div><div class="stat-label">Book club</div></div>
+</div>
+
+<svg class="wave" viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="transform:scaleY(-1)">
+  <path d="M0 25 Q100 0 200 25 Q300 50 400 25 Q500 0 600 25 Q700 50 800 25 Q900 0 1000 25 Q1100 50 1200 25 L1200 50 L0 50Z" fill="#f5c830"/>
+</svg>
+
+<section class="about-section">
+  <div>
+    <div class="section-tag">Our Purpose</div>
+    <h2 class="section-heading">Physics is better when everyone belongs 🌟</h2>
+    <p class="section-body">SWiP exists to provide an encouraging, fun, and supportive environment for women, femmes, trans and nonbinary people interested in physics at the University of Chicago — while spreading awareness of the exciting opportunities physics has to offer.</p>
+    <p class="section-body">We aim to make the physics department a more inclusive place for people of all genders and backgrounds, through community-building, professional support, and one-on-one connection.</p>
+  </div>
+  <div class="info-box">
+    <div class="section-tag">Did you know?</div>
+    <h3 class="section-heading" style="font-size:1.5rem;">Anyone who loves physics is welcome! 💕</h3>
+    <p class="section-body">That includes physics, astrophysics, molecular engineering, and related fields. Undergrads and grad students alike — all are welcome.</p>
+    <p class="section-body" style="margin:0;">Subscribe to our listhost at <strong>lists.uchicago.edu</strong> and search for "SWiP" to get started.</p>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 25 Q100 0 200 25 Q300 50 400 25 Q500 0 600 25 Q700 50 800 25 Q900 0 1000 25 Q1100 50 1200 25 L1200 50 L0 50Z" fill="#5bbcf0"/>
+</svg>
+
+<section class="activities-band">
+  <h2 class="band-heading">What we do 🎊</h2>
+  <div class="activities-grid">
+    <div class="activity-card">
+      <div class="activity-emoji">📚</div>
+      <div class="activity-title">Study Nights</div>
+      <div class="activity-desc">Informal sessions and academic support</div>
+    </div>
+    <div class="activity-card">
+      <div class="activity-emoji">🎤</div>
+      <div class="activity-title">Speaker Series</div>
+      <div class="activity-desc">Physicists from academia and industry</div>
+    </div>
+    <div class="activity-card">
+      <div class="activity-emoji">🤝</div>
+      <div class="activity-title">Mentorship</div>
+      <div class="activity-desc">Undergrads connected with grad students</div>
+    </div>
+    <div class="activity-card">
+      <div class="activity-emoji">🔬</div>
+      <div class="activity-title">Research Panels</div>
+      <div class="activity-desc">Research and career opportunities</div>
+    </div>
+    <div class="activity-card">
+      <div class="activity-emoji">🍦</div>
+      <div class="activity-title">Social Events</div>
+      <div class="activity-desc">Ice cream socials, movie nights & more</div>
+    </div>
+    <div class="activity-card">
+      <div class="activity-emoji">📖</div>
+      <div class="activity-title">Book Club</div>
+      <div class="activity-desc">Reading and discussing together</div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="transform:scaleY(-1)">
+  <path d="M0 25 Q100 0 200 25 Q300 50 400 25 Q500 0 600 25 Q700 50 800 25 Q900 0 1000 25 Q1100 50 1200 25 L1200 50 L0 50Z" fill="#5bbcf0"/>
+</svg>
+
+<section class="welcome-section">
+  <div class="section-tag">Who is Welcome</div>
+  <h2 class="section-heading">Everyone who loves physics 💕</h2>
+  <div class="welcome-grid">
+    <div class="welcome-card">
+      <div class="welcome-emoji">👩‍🔬</div>
+      <div class="welcome-title">Women, femmes & nonbinary folks</div>
+      <div class="welcome-desc">Creating space for underrepresented genders in physics to thrive and connect.</div>
+    </div>
+    <div class="welcome-card">
+      <div class="welcome-emoji">🏛️</div>
+      <div class="welcome-title">UChicago community</div>
+      <div class="welcome-desc">Undergrads, grad students, and anyone in the university community are welcome.</div>
+    </div>
+    <div class="welcome-card">
+      <div class="welcome-emoji">⚡</div>
+      <div class="welcome-title">Physics & adjacent fields</div>
+      <div class="welcome-desc">Physics, astrophysics, molecular engineering, and related disciplines.</div>
+    </div>
+  </div>
+</section>
+
+<svg class="wave" viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 25 Q100 0 200 25 Q300 50 400 25 Q500 0 600 25 Q700 50 800 25 Q900 0 1000 25 Q1100 50 1200 25 L1200 50 L0 50Z" fill="#d878bc"/>
+</svg>
+
+<section class="cta-band">
+  <h2 class="cta-heading">Want to join? ⭐</h2>
+  <p class="cta-sub">Subscribe to our listhost to stay up to date on events, opportunities, and everything SWiP!</p>
+  <div class="cta-btns">
+    <a href="https://lists.uchicago.edu/" class="btn-white" target="_blank">Join the listhost ✨</a>
+    <a href="#" class="btn-outline-white">Contact us 💌</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-wordmark">
+    <span class="s">S</span><span class="w">W</span><span class="i">i</span><span class="p">P</span>
+  </div>
+  <p class="footer-tagline">UChicago Society of Women in Physics</p>
+  <ul class="footer-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Mentorship</a></li>
+    <li><a href="#">Resources</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
